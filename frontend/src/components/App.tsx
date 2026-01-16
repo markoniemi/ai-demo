@@ -1,9 +1,9 @@
 import { useAuth } from 'react-oidc-context'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import './App.css'
-import Notes from './components/Notes'
-import NoteEdit from './components/NoteEdit'
-import NewNote from './components/NewNote'
+import '../App.css'
+import Notes from './Notes'
+import NoteEdit from './NoteEdit'
+import NewNote from './NewNote'
 
 function App() {
   const auth = useAuth()
