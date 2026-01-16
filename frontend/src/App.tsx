@@ -1,6 +1,9 @@
 import { useAuth } from 'react-oidc-context'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
 import Notes from './Notes'
+import NoteEdit from './NoteEdit'
+import NewNote from './NewNote'
 
 function App() {
   const auth = useAuth()
@@ -22,7 +25,7 @@ function App() {
 
   if (auth.isAuthenticated) {
     return (
-      <div>
+      <BrowserRouter>
         <div className="d-flex justify-content-between align-items-center">
           <span>Hello {auth.user?.profile.sub}</span>
           <button
@@ -33,8 +36,13 @@ function App() {
           </button>
         </div>
         <hr />
-        <Notes />
-      </div>
+        <Routes>
+          <Route path="/" element={<Navigate to="/notes" />} />
+          <Route path="/notes" element={<Notes />} />
+          <Route path="/notes/new" element={<NewNote />} />
+          <Route path="/notes/:id" element={<NoteEdit />} />
+        </Routes>
+      </BrowserRouter>
     )
   }
 

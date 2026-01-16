@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAuth } from 'react-oidc-context'
+import { Link } from 'react-router-dom'
 
 interface Note {
   id: number
@@ -36,11 +37,22 @@ function Notes() {
 
   return (
     <div>
-      <h2>Notes</h2>
+      <div className="d-flex justify-content-between align-items-center">
+        <h2>Notes</h2>
+        <Link to="/notes/new" className="btn btn-primary">
+          Add Note
+        </Link>
+      </div>
       <ul className="list-group">
         {notes.map((note) => (
-          <li key={note.id} className="list-group-item">
+          <li
+            key={note.id}
+            className="list-group-item d-flex justify-content-between align-items-center"
+          >
             {note.text}
+            <Link to={`/notes/${note.id}`} className="btn btn-secondary">
+              Edit
+            </Link>
           </li>
         ))}
       </ul>
