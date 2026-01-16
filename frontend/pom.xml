@@ -67,7 +67,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+                            <outputDirectory>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>dist</directory>
