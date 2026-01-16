@@ -2,6 +2,7 @@ import { useAuth } from 'react-oidc-context'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Notes from './Notes'
 
 function App() {
   const auth = useAuth()
@@ -27,6 +28,7 @@ function App() {
         Hello {auth.user?.profile.sub}
         <button onClick={() => void auth.removeUser()}>Log out</button>
         <br />
+        <Notes />
         <br />
         <div>
           <a href="https://vitejs.dev" target="_blank">
