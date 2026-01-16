@@ -37,9 +37,11 @@ function Notes() {
   return (
     <div>
       <h2>Notes</h2>
-      <ul>
+      <ul className="list-group">
         {notes.map((note) => (
-          <li key={note.id}>{note.text}</li>
+          <li key={note.id} className="list-group-item">
+            {note.text}
+          </li>
         ))}
       </ul>
     </div>
